@@ -6,7 +6,7 @@ class Player(pygame.sprite.Sprite):
     x = 1
     y = 1
     speed = 1
-    player_size = 100
+    player_size = 50
     player_color = (0, 255, 0)
     def move_right(self):
         temp = self.x + self.speed
