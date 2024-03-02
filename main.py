@@ -37,6 +37,7 @@ while True:
             if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                 if board1.board[player1.y][player1.x+1] == 0:
                     player1.move_right()
+            board1.setBoard()
     board1.draw()
     player1.draw()
     pygame.display.update()
