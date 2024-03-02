@@ -39,8 +39,11 @@ class Board:
                 if (i == goal_x and j == goal_y):
                     self.board[i][j] = 2
                 else:
-                    num = random.randint(0,1)
-                    self.board[i][j] = num
+                    num = random.randint(0,10)
+                    if (num < 7):
+                        self.board[i][j] = 0
+                    else:
+                        self.board[i][j] = 1
     
     def draw(self):
         pos_x = 0
