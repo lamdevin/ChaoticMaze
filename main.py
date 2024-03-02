@@ -9,7 +9,7 @@ from pygame.locals import *
 pygame.init()
 
 SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 800
+SCREEN_HEIGHT = 900
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("ChaoticMaze")
@@ -37,7 +37,7 @@ def check_win():
                 goal_y = random.randint(1, board1.size-1)
                 if board1.board[goal_y][goal_x] == 0:
                     check = False
-            board1.setBoard()
+            board1.setBoard(player1.x, player1.y)
             print("bruh, try again")
             
 def drawPlayer():
@@ -64,7 +64,7 @@ while True:
             steps = random.randint(1, 10)
             check_win()
             if steps % 7 == 2:
-                board1.setBoard()
+                board1.setBoard(player1.x, player1.y)
         
     board1.draw()
     drawPlayer()

@@ -29,14 +29,17 @@ class Board:
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
         ]
 
-        self.setBoard()
+        self.setBoard(2, 2)
 
-    def setBoard(self):
+    def setBoard(self, player_x, player_y):
         goal_x = random.randint(1, self.size-2)
         goal_y = random.randint(1, self.size-2)
 
         for i in range(1, self.size-1):
             for j in range(1, self.size-1):
+                if i == player_y and j == player_x:
+                    self.board[i][j] = 0
+                    continue
                 num = random.randint(0,10)
                 if (num < 7):
                     self.board[i][j] = 0
