@@ -1,4 +1,5 @@
 import pygame
+import random
 
 class Board:
     size = 8
@@ -20,6 +21,20 @@ class Board:
             [1, 0, 1, 0, 0, 0, 0, 1],
             [1, 1, 1, 1, 1, 1, 1, 1]
         ]
+
+        self.setBoard()
+
+    def setBoard(self):
+        goal_x = random.randint(1, self.size-1)
+        goal_y = random.randint(1, self.size-1)
+
+        for i in range(1, self.size-1):
+            for j in range(1, self.size-1):
+                if (i == goal_x and j == goal_y):
+                    self.board[i][j] = 2
+                else:
+                    num = random.randint(0,1)
+                    self.board[i][j] = num
     
     def draw(self):
         pos_x = 0
