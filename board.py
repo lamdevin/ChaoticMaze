@@ -2,6 +2,7 @@ import pygame
 import random
 
 class Board:
+    goal = [0, 0]
     size = 16
     surface = pygame.display.set_mode((size * 50, size * 50))
     def __init__(self):
@@ -38,6 +39,8 @@ class Board:
             for j in range(1, self.size-1):
                 if (i == goal_x and j == goal_y):
                     self.board[i][j] = 2
+                    self.goal[0] = i
+                    self.goal[1] = j
                 else:
                     num = random.randint(0,10)
                     if (num < 7):
