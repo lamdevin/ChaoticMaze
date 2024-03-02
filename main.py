@@ -55,11 +55,10 @@ while True:
             if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                 if board1.board[player1.y][player1.x+1] != 1:
                     player1.move_right()
-            steps += 1
+            steps = random.randint(1, 10)
             check_win()
-            if steps == 5:
+            if steps % 7 == 2:
                 board1.setBoard()
-                steps = 0
         
     board1.draw()
     player1.draw()
