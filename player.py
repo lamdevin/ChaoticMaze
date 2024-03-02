@@ -1,7 +1,8 @@
 from board import Board
+import pygame
 import random
 
-class Player:
+class Player(pygame.sprite.Sprite):
     x = 1
     y = 1
     speed = 1
@@ -26,3 +27,4 @@ class Player:
         self.speed += number
         if self.speed == 0:
             self.speed = 1
+        
