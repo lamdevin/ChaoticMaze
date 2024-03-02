@@ -26,12 +26,17 @@ while True:
             sys.exit()
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP or event.key == pygame.K_w:
-                player1.move_up()
+                if board1.board[player1.y-1][player1.x] == 0:
+                    player1.move_up()
             if event.key == pygame.K_DOWN or event.key == pygame.K_s:
-                player1.move_down()
+                if board1.board[player1.y+1][player1.x] == 0:
+                    player1.move_down()
             if event.key == pygame.K_LEFT or event.key == pygame.K_a:
-                player1.move_left()
+                if board1.board[player1.y][player1.x-1] == 0:
+                    player1.move_left()
             if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
-                player1.move_right()
+                if board1.board[player1.y][player1.x+1] == 0:
+                    player1.move_right()
     board1.draw()
+    player1.draw()
     pygame.display.update()
