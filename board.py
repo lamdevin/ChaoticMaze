@@ -1,6 +1,8 @@
 import pygame
 
 class Board:
+    size = 8
+    surface = pygame.display.set_mode((size * 100, size * 100))
     def __init__(self):
         self.size = 8
         self.surface = pygame.display.set_mode((self.size * 100, self.size * 100))
@@ -21,7 +23,7 @@ class Board:
     def draw(self):
         pos_x = 0
         pos_y = 0
-        rect_size = 80
+        rect_size = 100
         for i in range(self.size):
             for j in range(self.size):
                 if self.board[i][j] == 1:
