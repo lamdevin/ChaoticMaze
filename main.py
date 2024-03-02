@@ -21,6 +21,10 @@ player1 = Player()
 board1 = Board()
 steps = 0
 
+player_image = pygame.image.load("assets/chaotic_player.png")
+player_image = pygame.transform.scale(player_image, (player1.player_size, player1.player_size))
+pygame.display.set_icon(player_image)
+
 def check_win():
     if board1.goal[0] == player1.y and board1.goal[1] == player1.x:
         temp = random.randint(1, 10)
@@ -36,7 +40,9 @@ def check_win():
             board1.setBoard()
             print("bruh, try again")
             
-            
+def drawPlayer():
+    screen.blit(player_image, (player1.x * player1.player_size, player1.y * player1.player_size))
+
 while True:
     for event in pygame.event.get():
         if event.type == QUIT:
@@ -61,5 +67,8 @@ while True:
                 board1.setBoard()
         
     board1.draw()
-    player1.draw()
+    drawPlayer()
     pygame.display.update()
+
+
+

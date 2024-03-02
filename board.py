@@ -6,7 +6,7 @@ class Board:
     size = 16
     surface = pygame.display.set_mode((size * 50, size * 50))
     def __init__(self):
-        self.wall_color = (255, 0, 0)
+        self.wall_color = (80, 80, 80)
         self.goal_color = (255, 255, 0)
         self.empty_color = (255, 255, 255)
         

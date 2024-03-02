@@ -42,5 +42,3 @@ class Player(pygame.sprite.Sprite):
         if self.speed == 0:
             self.speed = 1
         
-    def draw(self):
-        pygame.draw.rect(Board.surface, self.player_color, pygame.Rect(self.x * self.player_size, self.y * self.player_size, self.player_size, self.player_size))
