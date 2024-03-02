@@ -1,6 +1,7 @@
 import pygame
 import sys
 from player import Player
+from board import Board
 from pygame.locals import *
 
 
@@ -16,6 +17,7 @@ FPS = pygame.time.Clock()
 FPS.tick(60)
 
 player1 = Player()
+board1 = Board()
 
 while True:
     for event in pygame.event.get():
@@ -25,14 +27,11 @@ while True:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP or event.key == pygame.K_w:
                 player1.move_up()
-                print("press up")
             if event.key == pygame.K_DOWN or event.key == pygame.K_s:
                 player1.move_down()
-                print("press don")
             if event.key == pygame.K_LEFT or event.key == pygame.K_a:
                 player1.move_left()
-                print("press left")
             if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                 player1.move_right()
-                print("press right")
+    board1.draw()
     pygame.display.update()
