@@ -31,19 +31,18 @@ class Board:
         self.setBoard()
 
     def setBoard(self):
-        goal_x = random.randint(1, self.size-1)
-        goal_y = random.randint(1, self.size-1)
+        goal_x = random.randint(1, self.size-2)
+        goal_y = random.randint(1, self.size-2)
 
         for i in range(1, self.size-1):
             for j in range(1, self.size-1):
-                if (i == goal_x and j == goal_y):
-                    self.board[i][j] = 2
+                num = random.randint(0,10)
+                if (num < 7):
+                    self.board[i][j] = 0
                 else:
-                    num = random.randint(0,10)
-                    if (num < 7):
-                        self.board[i][j] = 0
-                    else:
-                        self.board[i][j] = 1
+                    self.board[i][j] = 1
+        
+        self.board[goal_y][goal_x] = 2
     
     def draw(self):
         pos_x = 0
