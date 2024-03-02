@@ -4,7 +4,8 @@ import random
 class Board:
     goal = [0, 0]
     size = 16
-    surface = pygame.display.set_mode((size * 50, size * 50))
+    tile_size = 50
+    surface = pygame.display.set_mode((size * tile_size, size * tile_size))
     def __init__(self):
         self.wall_color = (80, 80, 80)
         self.goal_color = (255, 255, 0)

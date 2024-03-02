@@ -22,7 +22,10 @@ board1 = Board()
 steps = 0
 
 player_image = pygame.image.load("assets/chaotic_player.png")
+goal_image = pygame.image.load("assets/goal.png")
+
 player_image = pygame.transform.scale(player_image, (player1.player_size, player1.player_size))
+goal_image = pygame.transform.scale(goal_image, (board1.tile_size, board1.tile_size))
 pygame.display.set_icon(player_image)
 
 def check_win():
@@ -42,6 +45,9 @@ def check_win():
             
 def drawPlayer():
     screen.blit(player_image, (player1.x * player1.player_size, player1.y * player1.player_size))
+
+def drawGoal():
+    screen.blit(goal_image, (board1.goal[1] * board1.tile_size, board1.goal[0] * board1.tile_size))
 
 while True:
     for event in pygame.event.get():
@@ -67,6 +73,7 @@ while True:
                 board1.setBoard(player1.x, player1.y)
         
     board1.draw()
+    drawGoal()
     drawPlayer()
     pygame.display.update()
 
