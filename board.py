@@ -2,8 +2,8 @@ import pygame
 
 class Board:
     def __init__(self):
-        self.size = 12
-        self.surface = pygame.display.set_mode((600, 600))
+        self.size = 8
+        self.surface = pygame.display.set_mode((self.size * 100, self.size * 100))
         self.wall_color = (255, 0, 0)
         self.goal_color = (255, 255, 0)
         
@@ -21,7 +21,7 @@ class Board:
     def draw(self):
         pos_x = 0
         pos_y = 0
-        rect_size = 60
+        rect_size = 80
         for i in range(self.size):
             for j in range(self.size):
                 if self.board[i][j] == 1:
@@ -29,7 +29,7 @@ class Board:
                 elif self.board[i][j] == 2:
                     pygame.draw.rect(self.surface, self.goal_color, pygame.Rect(pos_x, pos_y, rect_size, rect_size))
                 pos_x += rect_size
-                pos_y += rect_size
-            pos_x = pos_y = 0
+            pos_x = 0
+            pos_y += rect_size
 
     
