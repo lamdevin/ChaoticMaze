@@ -34,7 +34,6 @@ def check_win():
     if board1.goal[0] == player1.y and board1.goal[1] == player1.x:
         temp = random.randint(1, 10)
         if temp <= 7:
-            # renderMessage("You win")
             return 1
             
         else:
@@ -45,7 +44,6 @@ def check_win():
                 if board1.board[goal_y][goal_x] == 0:
                     check = False
             board1.setBoard(player1.x, player1.y)
-            # renderMessage("bruh, try again")
             return -1
             
 def drawPlayer():
