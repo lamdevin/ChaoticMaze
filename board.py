@@ -3,7 +3,7 @@ import random
 
 class Board:
     goal = [0, 0]
-    size = 16
+    size = 16 # num of tiles
     tile_size = 50
     surface = pygame.display.set_mode((size * tile_size, size * tile_size))
     def __init__(self):
@@ -30,7 +30,7 @@ class Board:
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
         ]
 
-        self.setBoard(2, 2)
+        self.setBoard(1, 1)
 
     def setBoard(self, player_x, player_y):
         goal_x = random.randint(1, self.size-2)
@@ -38,7 +38,7 @@ class Board:
 
         for i in range(1, self.size-1):
             for j in range(1, self.size-1):
-                if i == player_y and j == player_x:
+                if (i == player_y and j == player_x):
                     self.board[i][j] = 0
                     continue
                 num = random.randint(0,10)
