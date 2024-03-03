@@ -67,18 +67,31 @@ while True:
             sys.exit()
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP or event.key == pygame.K_w:
-                if board1.board[player1.y-1][player1.x] != 1:
+                temp = player1.y-player1.speed
+                if temp <= 1:
+                    continue
+                elif board1.board[temp][player1.x] != 1:
                     player1.move_up()
             if event.key == pygame.K_DOWN or event.key == pygame.K_s:
-                if board1.board[player1.y+1][player1.x] != 1:
+                temp = player1.y+player1.speed
+                if temp >= board1.size-1:
+                    continue
+                elif board1.board[temp][player1.x] != 1:
                     player1.move_down()
             if event.key == pygame.K_LEFT or event.key == pygame.K_a:
-                if board1.board[player1.y][player1.x-1] != 1:
+                temp = player1.x-player1.speed
+                if temp <= 1:
+                    continue
+                if board1.board[player1.y][temp] != 1:
                     player1.move_left()
             if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
-                if board1.board[player1.y][player1.x+1] != 1:
+                temp = player1.x+player1.speed
+                if temp >= board1.size-1:
+                    continue
+                if board1.board[player1.y][temp] != 1:
                     player1.move_right()
             steps = random.randint(1, 10)
+            change_speed = random.randint(1, 10)
             player_won = check_win()
             if (player_won == 1):
                 message = "You won, Press q to quit or press arrow keys to start again"
@@ -93,12 +106,11 @@ while True:
                 message = "Try again"
             if steps % 7 == 2:
                 board1.setBoard(player1.x, player1.y)
+            if change_speed <= 3:
+                player1.random_change_speed()
         
     board1.draw()
     drawGoal()
     drawPlayer()
     renderMessage(message)
     pygame.display.update()
-
-
-

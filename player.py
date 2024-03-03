@@ -37,8 +37,8 @@ class Player(pygame.sprite.Sprite):
             self.y = temp
             
     def random_change_speed(self):
-        number = random.randint(-3, 3)
-        self.speed += number
+        number = random.randint(-2, 2)
+        self.speed = number
         if self.speed == 0:
             self.speed = 1
         
